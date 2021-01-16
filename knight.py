@@ -25,3 +25,6 @@ class Knight:
         """
 
         self.status = knight_status[statusIdx]
+    
+    def update_knight_position(self, pos):
+        pass

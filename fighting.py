@@ -8,4 +8,7 @@ class Battle:
             attacker (Knight): Knight that moves to the tile of of another knight
             defender (Knight): Knight that is already on the tile
         """
-        attacker.attack_score += 0.5
+        surprise_score = 0.5
+        attacker_score = attacker.attack_score + surprise_score
+
+        if ()
