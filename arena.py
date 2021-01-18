@@ -87,7 +87,7 @@ class Arena:
             item, last_position = Battle.kill_knight(2)
             logger.info(f'{knight} drowned')
 
-            if knight.drop_item(item, pos):
+            if knight.drop_item(item, last_position):
                 logger.warn(f'{item} dropped')
 
         else:
