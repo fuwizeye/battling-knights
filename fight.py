@@ -20,7 +20,7 @@ class Battle:
             attacker.attacker_score += attacker.item.attack
 
         if defender.item:
-            defender.defence_score += defender.item.defend
+            defender.defence_score += defender.item.defence
 
         return (
             (attacker, defender)
