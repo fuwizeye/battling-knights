@@ -98,3 +98,14 @@ class Arena:
 
                 if not knight.item:
                     knight.item = pos.items[0]
+                    self._assign_position(knight, pos)
+
+            elif self.is_square_with_a_knight(pos):
+                winner, loser = Battle.fight(knight, pos.knight)
+                self._assign_position(knight, pos)
+                item, dead_knight_pos = Battle.kill_knight(loser, 1)
+                logger('Battle result!!!')
+                logger(f'The winner is: {winner}')
+                logger(f'Loser: {loser}')
+
+                return winner
