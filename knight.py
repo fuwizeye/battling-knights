@@ -32,7 +32,7 @@ class Knight:
 
     def move(self, direction):
 
-        #self.position.knights = None
+        # self.position.knights = None
         shift_x, shift_y = self.map_direction_to_location(direction)
 
         self.position.x += shift_x
@@ -57,20 +57,14 @@ class Knight:
 
         return x, y
 
-    def kill_knight(self, statusIdx):
-        """ Kills the knight and drop equiped item
+    def drop_item(self, position):
+        """Drops and returns equipped item
+
+        Args:
+            position (Pos): location on the board
         """
-        item = self.item
-        self.update_knight_status(statusIdx)
-        self.position = None
-        self.attack_score = 0
-        self.defence_score = 0
-        self.item = None
-
-        return self, item
-
-
-nn = Knight('Blue', Pos(x=0, y=5))
-print(nn)
-nn.kill_knight(2)
-print(nn)
+        if self.item:
+            item = self.item
+            position.items.append(item)
+            self.item = None
+        return item
