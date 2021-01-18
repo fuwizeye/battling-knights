@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from operation import attrgetter
 
 from position import Position as Pos
 from items import Item
@@ -30,19 +31,6 @@ class Knight:
 
         self.status = knight_status[statusIdx]
 
-    def move(self, direction):
-
-        # self.position.knights = None
-        shift_x, shift_y = self.map_direction_to_location(direction)
-
-        self.position.x += shift_x
-        self.position.y += shift_y
-
-        if (self.position.x < 0 or self.position.x > 7 or
-                self.position.y < 0 or self.position.y > 7):
-
-            self.kill_knight(2)
-
     def drop_item(self, position):
         """Drops and returns equipped item
 
@@ -52,5 +40,6 @@ class Knight:
         if self.item:
             item = self.item
             position.items.append(item)
+            position.items.sort(key=attrgetter('rank'))
             self.item = None
-        return item
+            return True

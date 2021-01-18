@@ -1,8 +1,19 @@
 from dataclasses import dataclass, field
 from operator import attrgetter
+import logging
+
 from position import Position as Pos
 
 from fight import Battle
+
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.WARN)
+formatter = logging.Formatter('%(name)s:%(message)s')
+
+stream_handler = logging.StreamHandler()
+
+logger.addHandler(stream_handler)
 
 
 @dataclass
@@ -70,8 +81,7 @@ class Arena:
                 knight.position.y < 0 or knight.position.y > 7):
 
             item, last_position = Battle.kill_knight(2)
-
-            # add logger to log item and position
+            logger.info('f{knight} drowned')
 
         else:
             pos_x = knight.position.x
@@ -81,5 +91,6 @@ class Arena:
             if self.is_square_with_item(pos):
                 self._assign_position(knight, pos)
                 pos.items.sort(key=attrgetter('rank'))
+
                 if not knight.item:
                     knight.item = pos.items[0]
