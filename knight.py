@@ -43,20 +43,6 @@ class Knight:
 
             self.kill_knight(2)
 
-    def map_direction_to_location(self, direction):
-
-        switcher = {
-            'N': (-1, 0),
-            'E': (0, 1),
-            'S': (1, 0),
-            'W': (0, -1)
-
-        }
-
-        x, y = switcher[direction]
-
-        return x, y
-
     def drop_item(self, position):
         """Drops and returns equipped item
 
