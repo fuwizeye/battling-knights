@@ -9,3 +9,4 @@ class Item:
     position: Pos
     attack: int = 0
     defence: int = 0
+    rank: int
