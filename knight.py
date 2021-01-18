@@ -31,7 +31,7 @@ class Knight:
 
         self.status = knight_status[statusIdx]
 
-    def drop_item(self, position):
+    def drop_item(self, item, position):
         """Drops and returns equipped item
 
         Args:

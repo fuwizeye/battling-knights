@@ -77,16 +77,20 @@ class Arena:
         knight.position.x += shift_x
         knight.position.y += shift_y
 
+        pos_x = knight.position.x
+        pos_y = knight.position.y
+        pos = self.board[pos_x][pos_y]
+
         if (knight.position.x < 0 or knight.position.x > 7 or
                 knight.position.y < 0 or knight.position.y > 7):
 
             item, last_position = Battle.kill_knight(2)
-            logger.info('f{knight} drowned')
+            logger.info(f'{knight} drowned')
+
+            if knight.drop_item(item, pos):
+                logger.warn(f'{item} dropped')
 
         else:
-            pos_x = knight.position.x
-            pos_y = knight.position.y
-            pos = self.board[pos_x][pos_y]
 
             if self.is_square_with_item(pos):
                 self._assign_position(knight, pos)
