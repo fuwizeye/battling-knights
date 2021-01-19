@@ -35,7 +35,7 @@ class Arena:
                 if pos.knight:
                     print(pos.knight.color, end='')
                 elif len(pos.items) > 0:
-                    print(pos.items[0].name)
+                    print(pos.items[0].name, end='')
                 else:
                     print(' ', end='')
             print('')
