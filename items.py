@@ -6,7 +6,7 @@ from position import Position as Pos
 class Item:
 
     name: str
+    rank: int
     position: Pos
     attack: int = 0
     defence: int = 0
-    rank: int

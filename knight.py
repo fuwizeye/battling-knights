@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from operation import attrgetter
+from operator import attrgetter
 
 from position import Position as Pos
 from items import Item
