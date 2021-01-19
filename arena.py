@@ -97,7 +97,7 @@ class Arena:
         if (knight.position.x < 0 or knight.position.x > 7 or
                 knight.position.y < 0 or knight.position.y > 7):
 
-            item, last_position = Battle.kill_knight(2)
+            item, last_position = Battle.kill_knight(knight, 2)
             logger.info(f'{knight} drowned')
 
             if knight.drop_item(item, last_position):

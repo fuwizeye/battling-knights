@@ -39,15 +39,15 @@ class Play:
         pos_magic_staff = board_pos[5][2]
         pos_helmet = board_pos[5][5]
 
-        self.R = Knight('R', pos_r)
-        self.Y = Knight('Y', pos_y)
-        self.B = Knight('B', pos_b)
-        self.G = Knight('G', pos_g)
+        self.R = Knight('R', 'red', pos_r)
+        self.Y = Knight('Y', 'yellow', pos_y)
+        self.B = Knight('B', 'blue', pos_b)
+        self.G = Knight('G', 'green', pos_g)
 
-        self.axe = Item('A', 1, pos_axe)
-        self.dagger = Item('D', 2, pos_dagger)
-        self.magic_staff = Item('M', 3, pos_magic_staff)
-        self.helmet = Item('H', 4, pos_helmet)
+        self.axe = Item('A', 'axe', 1, pos_axe)
+        self.dagger = Item('D', 'dagger', 2, pos_dagger)
+        self.magic_staff = Item('M', 'magic_staff', 3, pos_magic_staff)
+        self.helmet = Item('H', 'helmet', 4, pos_helmet)
 
         pos_r.knight = self.R
         pos_y.knight = self.Y

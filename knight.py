@@ -12,6 +12,7 @@ knight_status = ('LIVE', 'DEAD', 'DROWNED')
 class Knight:
 
     color: str
+    name: str
     position: Pos
     status: str = knight_status[0]
     attack_score: int = 1
