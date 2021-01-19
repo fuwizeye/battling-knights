@@ -40,7 +40,7 @@ def save_state(knights, items):
 
 
 def write_to_file(state):
-    with open('./final_states.json.', 'w') as f:
+    with open('./final_state.json.', 'w') as f:
         f.writelines(dumps(state))
 
 
