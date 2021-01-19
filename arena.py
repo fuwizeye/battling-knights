@@ -28,6 +28,19 @@ class Arena:
             board.append(tuple(row))
         self.board = tuple(board)
 
+    def render_arena(self):
+        print('')
+        for row in self.board:
+            for pos in row:
+                if pos.knight:
+                    print(pos.knight.id, end='')
+                elif len(pos.items) > 0:
+                    print(pos.items[0].name)
+                else:
+                    print(' ', end='')
+            print('')
+        print('')
+
     def is_empty_square(self, location):
         """Checks if the given location is empty
 
