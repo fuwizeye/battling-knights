@@ -39,32 +39,32 @@ class Play:
         pos_magic_staff = board_pos[5][2]
         pos_helmet = board_pos[5][5]
 
-        self.red_knight = Knight('R', pos_r)
-        self.yellow_knight = Knight('Y', pos_y)
-        self.blue_knight = Knight('B', pos_b)
-        self.green_knight = Knight('G', pos_g)
+        self.R = Knight('R', pos_r)
+        self.Y = Knight('Y', pos_y)
+        self.B = Knight('B', pos_b)
+        self.G = Knight('G', pos_g)
 
         self.axe = Item('A', 1, pos_axe)
         self.dagger = Item('D', 2, pos_dagger)
-        self.magic_staff = Item('H', 3, pos_magic_staff)
-        self.helmet = ('M', 4, pos_helmet)
+        self.magic_staff = Item('M', 3, pos_magic_staff)
+        self.helmet = Item('H', 4, pos_helmet)
 
-        pos_r.knight = self.red_knight
-        pos_y.knight = self.yellow_knight
-        pos_b.knight = self.blue_knight
-        pos_g.knight = self.green_knight
+        pos_r.knight = self.R
+        pos_y.knight = self.Y
+        pos_b.knight = self.B
+        pos_g.knight = self.G
 
-        pos_axe.append(self.axe)
-        pos_dagger.append(self.dagger)
-        pos_magic_staff.append(self.magic_staff)
-        pos_helmet.append(self.helmet)
+        pos_axe.items.append(self.axe)
+        pos_dagger.items.append(self.dagger)
+        pos_magic_staff.items.append(self.magic_staff)
+        pos_helmet.items.append(self.helmet)
 
         return (
             self.arena,
-            self.red_knight,
-            self.yellow_knight,
-            self.blue_knight,
-            self.green_knight,
+            self.R,
+            self.Y,
+            self.B,
+            self.G,
             self.axe,
             self.dagger,
             self.magic_staff,

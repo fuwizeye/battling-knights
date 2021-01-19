@@ -33,7 +33,7 @@ class Arena:
         for row in self.board:
             for pos in row:
                 if pos.knight:
-                    print(pos.knight.id, end='')
+                    print(pos.knight.color, end='')
                 elif len(pos.items) > 0:
                     print(pos.items[0].name)
                 else:
