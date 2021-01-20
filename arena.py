@@ -8,7 +8,7 @@ from fight import Battle
 
 
 logger = logging.getLogger(__name__)
-logger.setLevel(logging.WARN)
+logger.setLevel(logging.DEBUG)
 formatter = logging.Formatter('%(name)s:%(message)s')
 
 stream_handler = logging.StreamHandler()
@@ -98,10 +98,10 @@ class Arena:
                 knight.position.y < 0 or knight.position.y > 7):
 
             item, last_position = Battle.kill_knight(knight, 2)
-            logger.info(f'{knight} drowned')
+            logger.info(f'Danger: {knight} drowned')
 
             if knight.drop_item(item, last_position):
-                logger.warn(f'{item} dropped')
+                logger.warn(f'Danger: {item} dropped')
 
         else:
 

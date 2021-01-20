@@ -3,8 +3,17 @@ import sys
 from items import Item
 from arena import Arena
 from knight import Knight
+import logging
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+formatter = logging.Formatter('%(name)s:%(message)s')
+
+stream_handler = logging.StreamHandler()
+
+logger.addHandler(stream_handler)
 
 
 class Play:
@@ -25,6 +34,13 @@ class Play:
         return moves_pairs
 
     def set_board(self):
+        """Sets up the arena board
+
+        Returns:
+            Knights and items
+        """
+        logger.info('\nWelcome to Battling Knight!')
+        logger.info('\nSetting up the Arena')
 
         self.arena = Arena()
         board_pos = self.arena.board

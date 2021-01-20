@@ -1,11 +1,20 @@
 from play import Play
 from json import dumps
 
+import logging
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+formatter = logging.Formatter('%(name)s:%(message)s')
+
+stream_handler = logging.StreamHandler()
+
+logger.addHandler(stream_handler)
+
 play_game = Play()
 
 
 def run():
-
     moves = play_game.read_moves()
 
     for knight, direction in moves:
@@ -36,10 +45,19 @@ def save_state(knights, items):
                 knight.defence_score
             ])
         game_results[knight.name] = knight_score
+
+    for item in items:
+        item_loc = (
+            [item.position.x, item.position.y]
+            if item.position else None,
+            item.position.knight is not None
+        )
+        game_results[item.full_name] = item_loc
     return game_results
 
 
 def write_to_file(state):
+    logger.info('Game finished! \nWriting results on final_state.json')
     with open('./final_state.json.', 'w') as f:
         f.writelines(dumps(state))
 
@@ -63,6 +81,5 @@ if __name__ == '__main__':
 
     play_game.arena.render_arena()
     run()
-    play_game.arena.render_arena()
     game_state = save_state(knights, items)
     write_to_file(game_state)
