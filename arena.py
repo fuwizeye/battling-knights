@@ -1,11 +1,14 @@
 from dataclasses import dataclass, field
 from operator import attrgetter
 import logging
+import os
+import sys
 
 from position import Position as Pos
 
 from fight import Battle
 
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
