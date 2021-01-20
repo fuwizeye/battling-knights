@@ -2,7 +2,7 @@
 
 ## Overview
 
-The consists of four knights (Red, Blue, Green, and Yellow) who fight on a 8 x 8 chessboard and four items i.e. Axe(A), Dagger(D), MagicStaff(M), and Helmet(H).
+The game consists of four knights (Red, Blue, Green, and Yellow) who fight on a 8 x 8 chessboard and four items i.e. Axe(A), Dagger(D), MagicStaff(M), and Helmet(H).
 
 The knights are positioned as follows:
 
@@ -33,7 +33,7 @@ The Knight class has the following attributes:
 - position: <Pos>
 - status: str 
 - attack_score: int
-- defence_score: int = 1
+- defence_score: int
 - item: <Item>
 
 ### Item class
@@ -67,7 +67,7 @@ The play class reads the movements from   `moves.txt` and sets the board.
 
 This application uses only bult-in and stdlib modules but requires to uses `python 3.7` and above.
 
-To run the app run the `run.py` as follows:
+To run the app run the `run.py` module as follows:
     `python run.py`
 
 
